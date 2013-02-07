@@ -10,6 +10,7 @@ Source0:	http://synflood-defender.net/_media/download/synflooddefender-%{version
 # Source0-md5:	d744ae65a69edbf893c86e36498be85a
 Source1:	http://synflood-defender.net/_media/download/synflooddefender_cacti_tpls.tar.gz
 # Source1-md5:	f0002aa57955008dc5e51b11c1c3cdc6
+Patch0:		iproute.patch
 URL:		http://synflood-defender.net/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.554
@@ -43,8 +44,8 @@ Features:
 Summary:	SNMPd agent to for Synflood Defender
 Group:		Networking/Daemons
 Requires:	net-snmp
-# for netstat
-Requires:	net-tools
+# for ss
+Requires:	iproute2
 
 %description -n net-snmp-agent-synflood-defender
 SNMPd agent to for Synflood Defender.
@@ -52,6 +53,7 @@ SNMPd agent to for Synflood Defender.
 %prep
 %setup -qn synflooddefender-%{version}-linux -a1
 mv synflooddefender_cacti_tpls/*.xml .
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
