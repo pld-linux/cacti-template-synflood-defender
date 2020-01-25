@@ -1,5 +1,4 @@
 %define		template synflood-defender
-%include	/usr/lib/rpm/macros.php
 Summary:	Template for Cacti - Synflood-Defender
 Name:		cacti-template-%{template}
 Version:	0.1.0
