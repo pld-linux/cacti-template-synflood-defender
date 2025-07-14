@@ -52,7 +52,7 @@ SNMPd agent to for Synflood Defender.
 %prep
 %setup -qn synflooddefender-%{version}-linux -a1
 mv synflooddefender_cacti_tpls/*.xml .
-%patch0 -p1
+%patch -P0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
